@@ -37,8 +37,6 @@ class WechatController extends Controller
      */
      public function anyMenu(){
 
-         var_dump(Config::get('wechat'));die;
-
         $app = new Application(Config::get('wechat'));
 
         $menu = $app->menu;
