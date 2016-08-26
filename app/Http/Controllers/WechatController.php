@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use EasyWeChat\Foundation\Application;
-use Config;
+use Config , Log;
 
 class WechatController extends Controller
 {
@@ -43,9 +43,13 @@ class WechatController extends Controller
 
         $buttons = [
             [
-                "type" => "click",
-                "name" => "今日歌曲",
-                "key"  => "V1001_TODAY_MUSIC"
+                "type" => "view",
+                "name" => "商城",
+                "key"  => "https://open.weixin.qq.com/connect/oauth2/authorize?
+                            appid=wx40bf86f9bf3f1c1e
+                            &redirect_uri=http://caesar.preview.jisxu.com/wechat/login
+                            &response_type=code&scope=snsapi_userinfo
+                            &state=pub#wechat_redirect"
             ],
             [
                 "name"       => "菜单",
@@ -72,7 +76,18 @@ class WechatController extends Controller
         $menu->add($buttons);
      }
 
-    
+     /**
+      * 微信登录回调
+      */
+      public function anyLogin(){
+          $app      = new Application(Config::get('wechat'));
+          $oauth    = $app->oauth;
+
+          $user     = $oauth->user();
+
+          Log::info(json_encode($user));
+      }
+
 
 
 }
