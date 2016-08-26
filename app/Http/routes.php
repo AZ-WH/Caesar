@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['api'] ], function () {
-    Route::controller('/wechat' , 'WechatPubController' , ['anyToken' => 'wechat.token']);
+    Route::controller('wechat' , 'WechatPubController');
 });
