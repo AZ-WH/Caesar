@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\WechatController;
+namespace App\Http\Controllers;
 
 use Log;
+use App\Http\Controllers\Controller;
 
 class WechatController extends Controller
 {
