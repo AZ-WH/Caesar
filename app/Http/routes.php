@@ -16,4 +16,6 @@ Route::get('/', function () {
 });
 
 
-Route::controllers('/wechat' , 'WechatController');
+Route::group(['middleware' => ['api'] ], function () {
+    Route::controllers('/wechat' , 'WechatPubController');
+});

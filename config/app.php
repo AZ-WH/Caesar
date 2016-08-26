@@ -166,7 +166,7 @@ return [
         /**
          * 微信
          */
-        Overtrue\LaravelWechat\ServiceProvider::class,
+
     ],
 
     /*
@@ -216,7 +216,7 @@ return [
         /**
          *微信
          */
-        'Wechat' => Overtrue\LaravelWechat\Facade::class,
+
 
     ],
 

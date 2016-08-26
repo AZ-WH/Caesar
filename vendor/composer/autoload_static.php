@@ -10,11 +10,11 @@ class ComposerStaticInitc1eb78dbffde30c94271d3feb133c2a1
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '9e090711773bfc38738f5dbaee5a7f14' => __DIR__ . '/..' . '/overtrue/wechat/src/Payment/helpers.php',
@@ -65,7 +65,6 @@ class ComposerStaticInitc1eb78dbffde30c94271d3feb133c2a1
         'O' => 
         array (
             'Overtrue\\Socialite\\' => 19,
-            'Overtrue\\LaravelWechat\\' => 23,
         ),
         'M' => 
         array (
@@ -213,10 +212,6 @@ class ComposerStaticInitc1eb78dbffde30c94271d3feb133c2a1
         array (
             0 => __DIR__ . '/..' . '/overtrue/socialite/src',
         ),
-        'Overtrue\\LaravelWechat\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/overtrue/laravel-wechat/src',
-        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -333,6 +328,7 @@ class ComposerStaticInitc1eb78dbffde30c94271d3feb133c2a1
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
         'App\\Http\\Controllers\\Auth\\PasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/PasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\WechatController\\WechatController' => __DIR__ . '/../..' . '/app/Http/Controllers/WechatController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -1800,10 +1796,6 @@ class ComposerStaticInitc1eb78dbffde30c94271d3feb133c2a1
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
-        'Overtrue\\LaravelWechat\\CacheBridge' => __DIR__ . '/..' . '/overtrue/laravel-wechat/src/CacheBridge.php',
-        'Overtrue\\LaravelWechat\\Facade' => __DIR__ . '/..' . '/overtrue/laravel-wechat/src/Facade.php',
-        'Overtrue\\LaravelWechat\\Middleware\\OAuthAuthenticate' => __DIR__ . '/..' . '/overtrue/laravel-wechat/src/Middleware/OAuthAuthenticate.php',
-        'Overtrue\\LaravelWechat\\ServiceProvider' => __DIR__ . '/..' . '/overtrue/laravel-wechat/src/ServiceProvider.php',
         'Overtrue\\Socialite\\AccessToken' => __DIR__ . '/..' . '/overtrue/socialite/src/AccessToken.php',
         'Overtrue\\Socialite\\AccessTokenInterface' => __DIR__ . '/..' . '/overtrue/socialite/src/AccessTokenInterface.php',
         'Overtrue\\Socialite\\AttributeTrait' => __DIR__ . '/..' . '/overtrue/socialite/src/AttributeTrait.php',
