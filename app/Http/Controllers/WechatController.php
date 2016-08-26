@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use EasyWechat\Foundation\Application;
+use EasyWeChat\Foundation\Application;
 use Config;
 
 class WechatController extends Controller
