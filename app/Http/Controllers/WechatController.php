@@ -45,14 +45,10 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "key"  => "https://open.weixin.qq.com/connect/oauth2/authorize?
-                            appid=wx40bf86f9bf3f1c1e
-                            &redirect_uri=http://caesar.preview.jisxu.com/wechat/login
-                            &response_type=code&scope=snsapi_userinfo
-                            &state=pub#wechat_redirect"
+                "key"  => "http://caesar.preview.jisxu.com/wechat/login"
             ],
             [
-                "name"       => "菜单",
+                "name"       => "其他",
                 "sub_button" => [
                     [
                         "type" => "view",
@@ -77,9 +73,20 @@ class WechatController extends Controller
      }
 
      /**
-      * 微信登录回调
+      * 微信登录
       */
       public function anyLogin(){
+          $app      = new Application(Config::get('wechat'));
+          $oauth    = $app->oauth;
+
+          return $oauth->redirect();
+
+      }
+
+     /**
+      * 微信登录回调
+      */
+      public function anyLoginCallback(){
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
 
