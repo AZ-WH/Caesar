@@ -93,9 +93,8 @@ class WechatController extends Controller
 
           $user     = $oauth->user();
 
-          Log::info(json_encode($user));
+          $oauth->redirect()->send();
 
-          return array('msg' => '成功');
       }
 
 
