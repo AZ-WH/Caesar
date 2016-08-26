@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use EasyWechat\Foundation\Application;
+use Config;
 
-class WechatPubController extends Controller
+class WechatController extends Controller
 {
 
     public function __construct(){
@@ -20,7 +21,7 @@ class WechatPubController extends Controller
         $signature      = $_GET['signature'];
         $timestamp      = $_GET['timestamp'];
         $nonce          = $_GET['nonce'];
-        $token          = "03fc1d5aa549c36";
+        $token          = Config::get('wechat.token');
         $tmpArr = array($token , $timestamp , $nonce);
         sort($tmpArr);
 
@@ -30,4 +31,15 @@ class WechatPubController extends Controller
             return false;
         }
     }
+
+    /**
+     * 菜单
+     */
+     public function anyMenu(){
+        $app = new Application(Config::get('wechat'));
+     }
+
+     $menu = $app->menu;
+
+     var_dump($menu);die;
 }
