@@ -45,7 +45,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => "http://caesar.preview.jisxu.com/wechat/login/callback"
+                "url"  => "http://caesar.preview.jisxu.com/wechat/callback"
             ],
             [
                 "name"       => "其他",
@@ -88,7 +88,7 @@ class WechatController extends Controller
      /**
       * 微信登录回调
       */
-      public function anyLoginCallback(){
+      public function anyCallback(){
 
           Log::info(2222);
           $app      = new Application(Config::get('wechat'));
