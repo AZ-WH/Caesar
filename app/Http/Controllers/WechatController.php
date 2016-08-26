@@ -96,6 +96,8 @@ class WechatController extends Controller
 
           $user     = $oauth->user();
 
+          Log::info($user->toArray());
+
           return "登录成功";
 
       }
