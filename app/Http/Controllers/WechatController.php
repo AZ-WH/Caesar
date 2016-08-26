@@ -41,6 +41,8 @@ class WechatController extends Controller
 
         $menu = $app->menu;
 
+        $menu->destroy();
+
         $buttons = [
             [
                 "type" => "view",
