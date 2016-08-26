@@ -46,27 +46,7 @@ class WechatController extends Controller
                 "type" => "view",
                 "name" => "商城",
                 "key"  => "http://caesar.preview.jisxu.com/wechat/login"
-            ],
-            [
-                "name"       => "其他",
-                "sub_button" => [
-                    [
-                        "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
-                    ],
-                    [
-                        "type" => "click",
-                        "name" => "赞一下我们",
-                        "key" => "V1001_GOOD"
-                    ],
-                ],
-            ],
+            ]
         ];
 
         $menu->add($buttons);
