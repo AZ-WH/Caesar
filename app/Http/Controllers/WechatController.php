@@ -75,18 +75,18 @@ class WechatController extends Controller
      /**
       * 微信登录
       */
-    //   public function anyLogin(){
-    //       $app      = new Application(Config::get('wechat'));
-    //       $oauth    = $app->oauth;
-      //
-    //       return $oauth->redirect();
-      //
-    //   }
+      public function anyLogin(){
+          $app      = new Application(Config::get('wechat'));
+          $oauth    = $app->oauth;
+
+          return $oauth->redirect();
+
+      }
 
      /**
       * 微信登录回调
       */
-      public function anyLogin(){
+      public function anyLoginCallback(){
 
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
