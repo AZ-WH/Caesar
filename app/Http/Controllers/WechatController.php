@@ -40,7 +40,7 @@ class WechatController extends Controller
 
         $menu = $app->menu;
 
-        var_dump($menu);die;
+        var_dump($menu->all());die;
      }
 
 
