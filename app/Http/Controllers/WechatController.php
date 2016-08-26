@@ -96,7 +96,7 @@ class WechatController extends Controller
 
           $user     = $oauth->user();
 
-          $oauth->redirect()->send();
+          return "登录成功";
 
       }
 
