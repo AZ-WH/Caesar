@@ -79,6 +79,7 @@ class WechatController extends Controller
       public function anyLogin(){
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
+          Log::info(111);
           return $oauth->redirect();
       }
 
