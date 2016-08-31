@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['api'] ], function () {
+Route::group(['middleware' => ['api'] , 'namespace' => 'Wechat'], function () {
     Route::controller('wechat' , 'WechatController');
 });
