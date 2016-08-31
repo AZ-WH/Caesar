@@ -92,7 +92,6 @@ class WechatController extends Controller
           $oauth                = $wechatApp->oauth;
           $wechatUserInfo       = $oauth->user();
 
-          Log::info($wechatUserInfo->original->openid);
 
         //   $userModel = new User;
           //
