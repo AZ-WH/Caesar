@@ -6,6 +6,8 @@ use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
 use Config , Log;
 
+use App\Models\User;
+
 class WechatController extends Controller
 {
 
@@ -38,15 +40,15 @@ class WechatController extends Controller
      */
      public function setMenu(){
 
-        $app = new Application(Config::get('wechat'));
+        $wechatApp = new Application(Config::get('wechat'));
 
-        $menu = $app->menu;
+        $menu = $wechatApp->menu;
 
         $buttons = [
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => "http://caesar.preview.jisxu.com/".Config::get('wechat.oauth.callback')
+                "url"  => Config::get('app.url').'/'.Config::get('wechat.oauth.callback')
             ],
             [
                 "name"       => "其他",
@@ -77,9 +79,8 @@ class WechatController extends Controller
       * 跳转微信登录
       */
       public function login(){
-          $app      = new Application(Config::get('wechat'));
-          $oauth    = $app->oauth;
-          Log::info(111);
+          $wechatApp      = new Application(Config::get('wechat'));
+          $oauth    = $wechatApp->oauth;
           return $oauth->redirect();
       }
 
@@ -87,10 +88,26 @@ class WechatController extends Controller
       * 微信登录成功后的回调
       */
       public function callbackLogin(){
-          $app      = new Application(Config::get('wechat'));
-          $oauth    = $app->oauth;
-          $user     = $oauth->user();
-          Log::info($user->toArray());
+          $wechatApp            = new Application(Config::get('wechat'));
+          $oauth                = $wechatApp->oauth;
+          $wechatUserInfo       = $oauth->user()->toArray();
+
+          $userModel = new User;
+
+          $userModel->true_name     = $wechatUserInfo['name'];
+          $userModel->avatar        = $wechatUserInfo['avatar'];
+          $userModel->wx_openid     = $wechatUserInfo['original']['openid'];
+          $userModel->wx_unionid    = $wechatUserInfo['original']['unionid'];
+          $userModel->login_type    = "微信公众号";
+
+          if($wechatUserInfo['sex'] == 1){
+              $userModel->sex       = '男';
+          }else{
+              $userModel->sex       = '女';
+          }
+
+          var_dump($userModel);die;
+
           return "登录成功";
       }
 
