@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Wechat;
 
 use EasyWeChat\Foundation\Application;
-use EasyWeChat\Core\AccessToken;
 use App\Http\Controllers\Controller;
 use Config , Log;
 
-use App\Models\User;
 
 class WechatController extends Controller
 {
@@ -93,6 +91,7 @@ class WechatController extends Controller
 
           $oauth                = $wechatApp->oauth;
           $wechatUserInfo       = $oauth->user();
+
 
 
         //   $userModel = new User;
