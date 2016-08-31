@@ -88,26 +88,25 @@ class WechatController extends Controller
       * 微信登录成功后的回调
       */
       public function callbackLogin(){
-          Log::info(1111);
           $wechatApp            = new Application(Config::get('wechat'));
           $oauth                = $wechatApp->oauth;
           $wechatUserInfo       = $oauth->user();
 
-          $userModel = new User;
+          Log::info($wechatUserInfo->original->openid);
 
-          $userModel->true_name     = $wechatUserInfo->name;
-          $userModel->avatar        = $wechatUserInfo->avatar;
-          $userModel->wx_openid     = $wechatUserInfo->original->openid;
-          $userModel->wx_unionid    = $wechatUserInfo->original->unionid;
-          $userModel->login_type    = "微信公众号";
-
-          if($wechatUserInfo->sex == 1){
-              $userModel->sex       = '男';
-          }else{
-              $userModel->sex       = '女';
-          }
-
-          var_dump($userModel);die;
+        //   $userModel = new User;
+          //
+        //   $userModel->true_name     = $wechatUserInfo->name;
+        //   $userModel->avatar        = $wechatUserInfo->avatar;
+        //   $userModel->wx_openid     = $wechatUserInfo->original->openid;
+        //   $userModel->wx_unionid    = $wechatUserInfo->original->unionid;
+        //   $userModel->login_type    = "微信公众号";
+          //
+        //   if($wechatUserInfo->sex == 1){
+        //       $userModel->sex       = '男';
+        //   }else{
+        //       $userModel->sex       = '女';
+        //   }
 
           return "登录成功";
       }
