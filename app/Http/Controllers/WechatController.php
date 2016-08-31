@@ -45,7 +45,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => "http://caesar.preview.jisxu.com/wechat/oauth/callback"
+                "url"  => "http://caesar.preview.jisxu.com/wechat/oauth-callback"
             ],
             [
                 "name"       => "其他",
