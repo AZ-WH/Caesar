@@ -17,7 +17,7 @@ class WechatController extends Controller
      *
      * 微信验证token
      */
-    public function anyToken(){
+    public function token(){
 
         $signature      = $_GET['signature'];
         $timestamp      = $_GET['timestamp'];
@@ -36,7 +36,7 @@ class WechatController extends Controller
     /**
      * 菜单
      */
-     public function anyMenu(){
+     public function setMenu(){
 
         $app = new Application(Config::get('wechat'));
 
@@ -46,7 +46,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => "http://caesar.preview.jisxu.com/wechat/oauth/callback"
+                "url"  => "http://caesar.preview.jisxu.com/wechat/callback/login"
             ],
             [
                 "name"       => "其他",
@@ -76,7 +76,7 @@ class WechatController extends Controller
      /**
       * 跳转微信登录
       */
-      public function anyLogin(){
+      public function login(){
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
           Log::info(111);
@@ -86,7 +86,7 @@ class WechatController extends Controller
      /**
       * 微信登录成功后的回调
       */
-      public function anyOauthCallback(){
+      public function callbackLogin(){
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
           $user     = $oauth->user();

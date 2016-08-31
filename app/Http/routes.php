@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => ['api'] , 'namespace' => 'Wechat'], function () {
-    Route::controller('wechat' , 'WechatController');
+    Route::any('wechat/token' , 'WechatController@token');
+    Route::any('wechat/menu/set' , 'WechatController@setMenu');
+    Route::any('wechat/login' , 'WechatController@login');
+    Route::any('wechat/callback/login' , 'WechatController@callbackLogin');
 });
