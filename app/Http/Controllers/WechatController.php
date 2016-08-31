@@ -45,7 +45,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => "http://caesar.preview.jisxu.com/wechat/callback"
+                "url"  => "http://caesar.preview.jisxu.com/wechat/oauth/callback"
             ],
             [
                 "name"       => "其他",
@@ -73,35 +73,23 @@ class WechatController extends Controller
      }
 
      /**
-      * 微信登录
+      * 跳转微信登录
       */
       public function anyLogin(){
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
-
-          Log::info(1111);
-
           return $oauth->redirect();
-
       }
 
      /**
-      * 微信登录回调
+      * 微信登录成功后的回调
       */
-      public function anyCallback(){
-
-          Log::info(2222);
+      public function anyOauthCallback(){
           $app      = new Application(Config::get('wechat'));
           $oauth    = $app->oauth;
-
           $user     = $oauth->user();
-
           Log::info($user->toArray());
-
           return "登录成功";
-
       }
-
-
 
 }
