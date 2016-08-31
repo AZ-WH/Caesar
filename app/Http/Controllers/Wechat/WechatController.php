@@ -88,6 +88,7 @@ class WechatController extends Controller
       * 微信登录成功后的回调
       */
       public function callbackLogin(){
+          Log::info(1111);
           $wechatApp            = new Application(Config::get('wechat'));
           $oauth                = $wechatApp->oauth;
           $wechatUserInfo       = $oauth->user();
