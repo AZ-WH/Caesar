@@ -90,17 +90,17 @@ class WechatController extends Controller
       public function callbackLogin(){
           $wechatApp            = new Application(Config::get('wechat'));
           $oauth                = $wechatApp->oauth;
-          $wechatUserInfo       = $oauth->user()->toArray();
+          $wechatUserInfo       = $oauth->user();
 
           $userModel = new User;
 
-          $userModel->true_name     = $wechatUserInfo['name'];
-          $userModel->avatar        = $wechatUserInfo['avatar'];
-          $userModel->wx_openid     = $wechatUserInfo['original']['openid'];
-          $userModel->wx_unionid    = $wechatUserInfo['original']['unionid'];
+          $userModel->true_name     = $wechatUserInfo->name;
+          $userModel->avatar        = $wechatUserInfo->avatar;
+          $userModel->wx_openid     = $wechatUserInfo->original->openid;
+          $userModel->wx_unionid    = $wechatUserInfo->original->unionid;
           $userModel->login_type    = "微信公众号";
 
-          if($wechatUserInfo['sex'] == 1){
+          if($wechatUserInfo->sex == 1){
               $userModel->sex       = '男';
           }else{
               $userModel->sex       = '女';
