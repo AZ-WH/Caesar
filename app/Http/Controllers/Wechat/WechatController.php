@@ -46,7 +46,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => "http://caesar.preview.jisxu.com/wechat/callback/login"
+                "url"  => Config::get('wechat.oauth.callback')
             ],
             [
                 "name"       => "其他",
