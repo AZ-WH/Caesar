@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Wechat;
 
 use EasyWeChat\Foundation\Application;
+use EasyWeChat\Core\AccessToken;
 use App\Http\Controllers\Controller;
 use Config , Log;
 
@@ -31,7 +32,7 @@ class WechatController extends Controller
         if(sha1(implode($tmpArr)) == $signature){
             echo $_GET['echostr'];exit;
         }else{
-            return false;
+            return '失败';
         }
     }
 
@@ -89,6 +90,7 @@ class WechatController extends Controller
       */
       public function callbackLogin(){
           $wechatApp            = new Application(Config::get('wechat'));
+
           $oauth                = $wechatApp->oauth;
           $wechatUserInfo       = $oauth->user();
 
