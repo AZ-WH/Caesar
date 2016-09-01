@@ -96,20 +96,21 @@ class WechatController extends Controller
 
           $wechatUserInfo       = $wechatUserInfo->toArray();
 
+          Log::info($wechatUserInfo);
 
-           $userModel = new User;
+          $userModel = new User;
 
-           $userModel->true_name     = $wechatUserInfo['name'];
-           $userModel->avatar        = $wechatUserInfo['avatar'];
-           $userModel->wx_openid     = $wechatUserInfo['original']['openid'];
-           $userModel->wx_unionid    = $wechatUserInfo['original']['unionid'];
-           $userModel->login_type    = "微信公众号";
+          $userModel->true_name     = $wechatUserInfo['name'];
+          $userModel->avatar        = $wechatUserInfo['avatar'];
+          $userModel->wx_openid     = $wechatUserInfo['original']['openid'];
+          $userModel->wx_unionid    = $wechatUserInfo['original']['unionid'];
+          $userModel->login_type    = "微信公众号";
 
-           if($wechatUserInfo['sex'] == 1){
-               $userModel->sex       = '男';
-           }else{
-               $userModel->sex       = '女';
-           }
+          if($wechatUserInfo['sex'] == 1){
+              $userModel->sex       = '男';
+          }else{
+              $userModel->sex       = '女';
+          }
 
           var_dump($userModel);die;
 
