@@ -110,14 +110,18 @@ class WechatController extends Controller
 
           $userInfo = User::firstOrCreate($data);
           /**
-           * 设置session和cookie
+           * 设置session
            */
           if($userInfo){
-              var_dump($userInfo->toArray());die;
+              $sessionKey = $this->getSalt(16);
+              Session::put($sessionKey, $userInfo);
+
+              User::where('id' , $userInfo['id'])->update(['token' => $sessionKey]);
+              $userInfo['token'] = $sessionKey;
           }
 
 
-          return "登录成功";
+          return $userInfo;
       }
 
 }
