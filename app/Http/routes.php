@@ -15,5 +15,5 @@ Route::group(['middleware' => ['web'] , 'namespace' => 'Wechat'], function () {
     Route::any('wechat/token' , 'WechatController@token');
     Route::any('wechat/menu/set' , 'WechatController@setMenu');
     Route::any('wechat/login' , 'WechatController@login');
-    Route::any('wechat/callback/login' , 'WechatController@callbackLogin');
+    Route::any('wechat/call-back/login' , 'WechatController@callbackLogin');
 });
