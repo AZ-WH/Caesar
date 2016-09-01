@@ -47,7 +47,7 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "商城",
-                "url"  => Config::get('app.url').'/'.Config::get('wechat.oauth.callback')
+                "url"  => Config::get('app.url').'wechat/login'
             ],
             [
                 "name"       => "其他",
