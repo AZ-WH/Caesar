@@ -28,7 +28,11 @@ class User extends Authenticatable
         'wx_unionid',
         'remember_token'
     ];
-    
+
+    protected $fillable = [
+        'account' , 'password' , 'salt' , 'mobile' , 'avatar' , 'sex' , 'true_name' , 'wx_openid' , 'wx_unionid'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
