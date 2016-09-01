@@ -106,7 +106,7 @@ class WechatController extends Controller
           $userModel->wx_unionid    = $wechatUserInfo['original']['unionid'];
           $userModel->login_type    = "微信公众号";
 
-          if($wechatUserInfo['sex'] == 1){
+          if($wechatUserInfo['original']['sex'] == 1){
               $userModel->sex       = '男';
           }else{
               $userModel->sex       = '女';
