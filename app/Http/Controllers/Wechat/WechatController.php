@@ -108,11 +108,13 @@ class WechatController extends Controller
               $data['sex']      = '女';
           }
 
-
-
           $userInfo = User::firstOrCreate($data);
-
-          var_dump($userInfo);die;
+          /**
+           * 设置session和cookie
+           */
+          if($userInfo){
+              var_dump($userInfo->toArray());die;
+          }
 
 
           return "登录成功";
