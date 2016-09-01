@@ -6,6 +6,8 @@ use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
 use Config , Log;
 
+use App\Models\User;
+
 
 class WechatController extends Controller
 {
