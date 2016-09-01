@@ -30,7 +30,7 @@ class User extends Authenticatable
     ];
 
     protected $fillable = [
-        'account' , 'password' , 'salt' , 'mobile' , 'avatar' , 'sex' , 'true_name' , 'wx_openid' , 'wx_unionid'
+        'account' , 'password' , 'salt' , 'mobile' , 'avatar' , 'sex' , 'true_name' , 'wx_openid' , 'wx_unionid' , 'login_type'
     ];
 
     /**
