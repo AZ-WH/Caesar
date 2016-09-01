@@ -112,8 +112,7 @@ class WechatController extends Controller
 
           $userInfo = User::firstOrNew($data);
 
-          var_dump($userInfo);die;
-
+          $userInfo->save();
 
 
           return "登录成功";
