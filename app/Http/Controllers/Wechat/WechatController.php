@@ -110,7 +110,7 @@ class WechatController extends Controller
 
 
 
-          $userInfo = User::firstOrNew($data);
+          $userInfo = User::firstOrCreate($data);
 
           var_dump($userInfo);die;
 
