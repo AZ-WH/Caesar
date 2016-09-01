@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Wechat;
 
 use EasyWeChat\Foundation\Application;
 use App\Http\Controllers\Controller;
-use Config , Log;
+use Config , Log , Session , Cookie;
 
 use App\Models\User;
 
@@ -90,29 +90,31 @@ class WechatController extends Controller
       */
       public function callbackLogin(){
           $wechatApp            = new Application(Config::get('wechat'));
-
           $oauth                = $wechatApp->oauth;
           $wechatUserInfo       = $oauth->user();
-
           $wechatUserInfo       = $wechatUserInfo->toArray();
 
-          Log::info($wechatUserInfo);
+          $data = array();
 
-          $userModel = new User;
-
-          $userModel->true_name     = $wechatUserInfo['name'];
-          $userModel->avatar        = $wechatUserInfo['avatar'];
-          $userModel->wx_openid     = $wechatUserInfo['original']['openid'];
-          $userModel->wx_unionid    = $wechatUserInfo['original']['unionid'];
-          $userModel->login_type    = "微信公众号";
+          $data['true_name']    = $wechatUserInfo['name'];
+          $data['avatar']       = $wechatUserInfo['avatar'];
+          $data['wx_openid']    = $wechatUserInfo['original']['openid'];
+          $data['wx_unionid']   = $wechatUserInfo['original']['unionid'];
+          $data['login_type']   = "微信公众号";
 
           if($wechatUserInfo['original']['sex'] == 1){
-              $userModel->sex       = '男';
+              $data['sex']      = '男';
           }else{
-              $userModel->sex       = '女';
+              $data['sex']      = '女';
           }
 
-          var_dump($userModel);die;
+
+
+          $userInfo = User::firstOrNew($data);
+
+          var_dump($userInfo);die;
+
+
 
           return "登录成功";
       }
